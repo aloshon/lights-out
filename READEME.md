@@ -1,4 +1,7 @@
 # Getting Started with Create React App
+The common game of Lights Out. Click a tile and that along with the 4 touching the tile
+will swap from on to off and vice versa. Win the game by putting out all the lights!
+High score will be recorded.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
