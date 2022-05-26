@@ -27,6 +27,7 @@ import "./Board.css";
  *
  **/
 
+
 function Board({ nrows=5, ncols=5, chanceLightStartsOn=.3 }) {
   const [numTries, setNumTries] = useState(0);
 
@@ -38,11 +39,11 @@ function Board({ nrows=5, ncols=5, chanceLightStartsOn=.3 }) {
   function createBoard() {
     let initialBoard = [];
     // create array-of-arrays of true/false values
+    // chanceLightStartsOn compares to Math.random() to cause each tile to have 
+    // a 30% chance of being lit (aka boolean true)
     for(let y = 0; y < nrows; y++){
       let row = [];
       for(let x = 0; x < ncols; x++){
-        // if random number is less than chanceLightStartsOn, 
-        // then this cell will start unlit
         row.push(Math.random() < chanceLightStartsOn);
       }
       initialBoard.push(row);
@@ -67,7 +68,7 @@ function Board({ nrows=5, ncols=5, chanceLightStartsOn=.3 }) {
   }
 
   function flipCellsAround(coord) {
-    setNumTries(numTries + 1)
+    setNumTries(numTries + 1);
     setBoard(oldBoard => {
       const [y, x] = coord.split("-").map(Number);
 
@@ -93,7 +94,7 @@ function Board({ nrows=5, ncols=5, chanceLightStartsOn=.3 }) {
     });
   }
 
-  // if the game is won, just show a winning msg & render nothing else
+  // if the game is won, just show a winning msg & high score
 
   if (hasWon()) {
     // If a new bestscore is acheived, set it
